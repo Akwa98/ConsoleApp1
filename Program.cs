@@ -9,6 +9,7 @@ namespace MyNamespace
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to the simple calculator!");
             bool isRunning = true;
             while (true)
             {
@@ -26,7 +27,7 @@ namespace MyNamespace
                         Console.WriteLine("Invalid operator. Please try again.");
                     }
                 }
-                if (string.Equals(operation, "exit", StringComparison.OrdinalIgnoreCase))
+                if (string.Equals(operation, "EXIT", StringComparison.OrdinalIgnoreCase))
                 {
                     isRunning = false;
                     Console.WriteLine("Exiting the calculator. Goodbye!");
@@ -42,19 +43,26 @@ namespace MyNamespace
 
                 if (operation == "+")
                 {
-                    Console.WriteLine($"the answer is {num1 + num2}");
+                    Console.WriteLine(Add(num1, num2));
                 }
                 else if (operation == "-")
                 {
-                    Console.WriteLine($"the answer is {num1 - num2}");
+                    Console.WriteLine(Subtract(num1, num2));
                 }
                 else if (operation == "*")
                 {
-                    Console.WriteLine($"the answer is {num1 * num2}");
+                    Console.WriteLine(Multiply(num1, num2));
                 }
                 else if (operation == "/")
                 {
-                    Console.WriteLine($"the answer is {num1 / num2}");
+                    try
+                    {
+                        Console.WriteLine(Divide(num1, num2));
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 }
                 else if (operation == "exit")
                 {
@@ -70,8 +78,28 @@ namespace MyNamespace
 
 
             Console.ReadLine();
-
         }
+        static double Add(double a, double b)
+        {
+            return a + b;
+        }
+        static double Subtract(double a, double b)
+        {
+            return a - b;
+        }
+        static double Multiply(double a, double b)
+        {
+            return a * b;
+        }
+        static double Divide(double a, double b)
+        {
+            if (b == 0)
+            {
+                throw new ArgumentException("Division by zero is not allowed.");
+            }
+            return a / b;
+        }
+
     } 
 }
 
