@@ -11,9 +11,9 @@ namespace MyNamespace
         {
             Console.WriteLine("Welcome to the simple calculator!");
             bool isRunning = true;
-            while (true)
+            while (isRunning)
             {
-                string? operation = null;
+                string? operation;
                 while (true)
                 {
                     Console.WriteLine("Enter an operator (+, -, *, /) or 'exit' to quit: ");
@@ -35,33 +35,37 @@ namespace MyNamespace
                 }
 
 
-                Console.WriteLine("Enter the first number: ");
+                Console.Write("Enter the first number: ");
                 double num1 = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("Enter the second number: ");
+                Console.Write("Enter the second number: ");
                 double num2 = Convert.ToDouble(Console.ReadLine());
 
                 if (operation == "+")
                 {
-                    Console.WriteLine(Add(num1, num2));
+                    Console.WriteLine($"The sum of {num1} and {num2} is: {Add(num1, num2)}");
                 }
                 else if (operation == "-")
                 {
-                    Console.WriteLine(Subtract(num1, num2));
+                    Console.WriteLine($"The difference of {num1} and {num2} is: {Subtract(num1, num2)}");
                 }
                 else if (operation == "*")
                 {
-                    Console.WriteLine(Multiply(num1, num2));
+                    Console.WriteLine($"The product of {num1} and {num2} is: {Multiply(num1, num2)}");
                 }
                 else if (operation == "/")
                 {
                     try
                     {
-                        Console.WriteLine(Divide(num1, num2));
+                        Console.WriteLine($"The quotient of {num1} and {num2} is: {Divide(num1, num2)}");
+                    }
+                    catch (FormatException ex)
+                    {
+                        Console.WriteLine($"Please enter valid numbers, not text. {ex.Message}");
                     }
                     catch (ArgumentException ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        Console.WriteLine($"This is an invalid action {ex.Message}");
                     }
                 }
                 else if (operation == "exit")
@@ -76,8 +80,6 @@ namespace MyNamespace
 
             }
 
-
-            Console.ReadLine();
         }
         static double Add(double a, double b)
         {
@@ -97,9 +99,13 @@ namespace MyNamespace
             {
                 throw new ArgumentException("Division by zero is not allowed.");
             }
+            else if (double.IsNaN(a) || double.IsNaN(b))
+            {
+                throw new FormatException("Input cannot be an Alphabet.");
+            }
             return a / b;
         }
 
-    } 
+    }
 }
 
