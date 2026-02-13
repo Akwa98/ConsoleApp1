@@ -9,7 +9,7 @@ namespace MyNamespace
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the simple calculator!");
+            Console.WriteLine("Welcome to these simple calculator!");
             bool isRunning = true;
             while (isRunning)
             {

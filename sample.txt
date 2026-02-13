@@ -1,0 +1,77 @@
+/*
+// See https://aka.ms/new-console-template for more information
+using System;
+using System.Globalization;
+
+namespace NewProject
+{
+    class Progam
+    {
+        static void Main (string[] args)
+        {
+            
+            Console.WriteLine("pick a number between the range of '0 - 6");
+            int num = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"You picked the month of: {GetMonth(num)}");
+
+            
+           // Console.ReadLine();
+            
+
+        }
+        static string GetMonth(int monthNum)
+        {
+            string monthName;
+
+            switch (monthNum)
+            { 
+                case 0: 
+                    monthName = "January";
+                    break;
+                case 1:
+                    monthName = "Feburary";
+                    break;
+                case 2:
+                    monthName = "March";
+                    break;
+                case 3:
+                    monthName = "April";
+                    break;
+                case 4:
+                    monthName = "May";
+                    break;
+                case 5:
+                    monthName = "June";
+                    break;
+                case 6:
+                    monthName = "July";
+                    break;
+                case 7:
+                    monthName = "August";
+                    break;
+                case 8:
+                    monthName = "Spetember";
+                    break;
+                case 9:
+                    monthName = "October";
+                    break;
+                case 10:
+                    monthName = "November";
+                    break;
+                case 11:
+                    monthName = "December";
+                    break;
+                default:
+                    monthName = "invalid month";
+                    break;
+
+            }
+            return monthName;
+            
+        }
+        
+    }
+
+}
+
+*/
