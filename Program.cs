@@ -9,11 +9,14 @@ namespace MyNamespace
     {
         static void Main(string[] args)
         {
+            // This line of code prints a welcome message to the console when the program starts.
             Console.WriteLine("Welcome to these simple calculator!");
+            // This variable is used to control the main loop of the calculator, allowing the user to perform multiple calculations until they choose to exit.
             bool isRunning = true;
             while (isRunning)
             {
-
+                // This piece of code prompts the user to enter the first number and 
+                // reads it from the console, converting it to a double.  
                 Console.Write("Enter the first number: ");
                 double num1 = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine();
@@ -80,18 +83,23 @@ namespace MyNamespace
             }
 
         }
+        // these are the methods that perform the basic arithmetic operations (addition, subtraction, multiplication, and division) for the calculator application. Each method takes two double parameters and returns the result of the respective operation. 
+        // These is the method that performs the addition operation.
         static double Add(double a, double b)
         {
             return a + b;
         }
+        // These is the function that performs the subtraction operation.
         static double Subtract(double a, double b)
         {
             return a - b;
         }
+        // These is the method that performs the multiplication operation.
         static double Multiply(double a, double b)
         {
             return a * b;
         }
+        // This is the function that performs the division operation, with error handling for division by zero and invalid input.
         static double Divide(double a, double b)
         {
             if (b == 0)
