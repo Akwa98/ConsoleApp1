@@ -13,7 +13,7 @@ namespace MyNamespace
             bool isRunning = true;
             while (isRunning)
             {
-                
+
                 Console.Write("Enter the first number: ");
                 double num1 = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine();
@@ -22,15 +22,12 @@ namespace MyNamespace
                 while (true)
                 {
                     Console.Write("Enter an operator (+, -, *, /) or 'exit' to quit: ");
-                    operation = Console.ReadLine();
-                    if (operation == "+" || operation == "-" || operation == "*" || operation == "/" || operation == "EXIT" || operation == "exit")
-                    {
+                    operation = Console.ReadLine()?.ToLower();
+
+                    if (operation is "+" or "-" or "*" or "/" or "exit")
                         break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid operator. Please try again.");
-                    }
+
+                    Console.WriteLine("Invalid operator. Please try again.");
                 }
                 if (string.Equals(operation, "EXIT", StringComparison.OrdinalIgnoreCase))
                 {
